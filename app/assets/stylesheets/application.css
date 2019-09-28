@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+/* COMPONENT PROPERTIES */
+body
+{
+    background-color: #007934;
+}
+
+/* STYLES */
+.centered
+{
+    align-content: center;
+    align-items: center;
+}
+
+.notice
+{
+    z-index: 1;
+}
+
+.alert
+{
+    z-index: 1;
+}
