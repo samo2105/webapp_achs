@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_27_234748) do
+ActiveRecord::Schema.define(version: 2019_09_28_004402) do
 
   create_table "article_tags", force: :cascade do |t|
     t.integer "tag_id", null: false
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 2019_09_27_234748) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "coments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "article_id", null: false
@@ -43,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_09_27_234748) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_tags_on_category_id"
   end
 
   create_table "user_tags", force: :cascade do |t|
@@ -83,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_09_27_234748) do
   add_foreign_key "article_tags", "tags"
   add_foreign_key "coments", "articles"
   add_foreign_key "coments", "users"
+  add_foreign_key "tags", "categories"
   add_foreign_key "user_tags", "tags"
   add_foreign_key "user_tags", "users"
   add_foreign_key "user_to_dos", "tags"
