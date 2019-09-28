@@ -1,0 +1,22 @@
+
+  <% @all_articles.each_slice(3) do |articles| %>
+    <div class="card-deck">
+      <% articles.each do |article| %>
+        <div class="card">
+          <img src="<%= article.image %>" class="card-img-top" alt="article photo">
+          <div class="card-body">
+            <h5 class="card-title"><%= article.name %></h5>
+            <p class="card-text"><small class="text-muted"><%= time_ago_in_words article.created_at %></small></p>
+          </div>
+        </div>
+        <% end %>
+    </div>
+    <%= link_to 'Ver artículo', article %>
+  <% end %>
+
+  <% @all_to_dos.each do |todo| %>
+    <div class="card">
+    <%= todo.name %>
+    <%= todo.detail %>
+    </div>
+  <% end %>
