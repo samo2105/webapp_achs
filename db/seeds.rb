@@ -7,3 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+Tag.destroy_all
+20.times do |i|
+Tag.create(
+ name: Faker::Job.field
+)
+end
