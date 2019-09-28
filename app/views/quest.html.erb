@@ -1,0 +1,11 @@
+<%= form_with model: User_tag.new, local: :true do |f| %>
+  <%= f.label 'Elige rando de edad' %>
+  <%= f.select_field :tag_id, @tag.pluck(:name) %>
+  <%= f.label 'Ocupacion' %>
+  <%= f.select_field :tag_id, @tag.pluck(:name) %>
+  <%= f.label 'medio de transporte' %>
+  <%= f.select_field :tag_id, @tag.pluck(:name) %> 
+
+  <%= f.hidden_field :project_id, value: @project.id %> 
+  <%= f.submit 'Create!' %>
+<% end %>

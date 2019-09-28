@@ -5,5 +5,17 @@
   <%= @user.name %>
 </p>
 
+<%= form_with(model: @user_tag, local: :true) do |f| %>
+    <%= f.label 'Elige rango de edad' %>
+    <%= f.select :tag_id, Tag.where(category_id: '1') %>
+    <%= f.label 'Ocupacion' %>
+    <%= f.select :tag_id, Tag.where(category_id: '2') %>
+    <%= f.label 'medio de transporte' %>
+    <%= f.select :tag_id, Tag.where(category_id: '3') %> 
+
+    <%= f.hidden_field :user_id, value: @user.id %> 
+    <%= f.submit 'Create!' %>
+<% end %>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
